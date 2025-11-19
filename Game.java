@@ -1,13 +1,18 @@
 
 /**
- * Write a description of class Game here.
+ * The Game class will handle the overall tic-tac-toe game.
+ * It will create the board and players, as well as the game loop/determining when
+ * the game is over. 
  *
- * @author (your name)
+ * @author Eddie 
  * @version (a version number or a date)
  */
 public class Game
 {
     // instance variables 
+    private Board gameBoard; 
+    private Player player1; 
+    private Player player2;
 
     /**
      * Constructor for objects of class Game
@@ -15,6 +20,9 @@ public class Game
     public Game()
     {
         // initialise instance variables
+        gameBoard = new Board();
+        player1 = new Player("X");
+        player2 = new Player("O"); 
     }
 
     public void play() {
