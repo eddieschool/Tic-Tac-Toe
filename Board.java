@@ -52,8 +52,18 @@ public class Board
     
     public void makeMove(int move, String symbol) 
     {
-        //we don't have to do this yet *** 
-        //TODO 
+        //convert move (1-9/numSpaces) to row and column 
+        //move 1 = row 0, col 0 
+        //move 2 = row 0, col 1
+        //move 3 = row 0, col 2 
+        //move 4 = row 1, col 0
+        //move 5 = row 1, col 1, etc 
+        
+        int row = (move - 1 ) / SIZE; 
+        int col = (move - 1) % SIZE; 
+        
+        //place the symbol at the position 
+        board[row][col] = symbol; 
     }
     
     /** 
@@ -75,8 +85,18 @@ public class Board
      */
     public boolean isBoardFull()
     {
-        //TODO 
-        return false; 
+        //loop through the boards positions
+        for (int row = 0; row < SIZE; row++)
+        {
+            for (int col = 0; col < SIZE; col++)
+            {
+                if(board[row][col] == null)//checking each space to see if there is a null (empty) spot. Returns false if/when hit
+                {
+                    return false; 
+                }
+            }
+        }
+        return true; //if all other positions were checked with none being null/empty 
     }
     
 }

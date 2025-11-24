@@ -1,4 +1,4 @@
-
+import java.util.Random; 
 /**
  * The Player class represents a player in the Tic-Tac-Toe game and assign
  * them a symbol. Each player has a symbol of either "X" or "X" that 
@@ -10,7 +10,7 @@
 public class Player
 {
     // instance variables
-    private String symbol; 
+    private String symbol; //x or o 
     
     /**
      * Constructor for objects of the player Class 
@@ -42,7 +42,12 @@ public class Player
      */
     public int getMove(Board b)
     {
-        //TODO 
-        return 0; 
+        Random rand = new Random();
+        
+        int numSpaces = b.getSize() * b.getSize(); //finds the amount of spaces by doing size * size (avoid hard 9) 
+        
+        int randomMove = rand.nextInt(numSpaces) + 1; //generates rndom number from 1 to numSpaces (again, so we are not stuck at 9) 
+        
+        return randomMove; 
     }
 }
