@@ -48,6 +48,11 @@ public class Player
         
         int randomMove = rand.nextInt(numSpaces) + 1; //generates rndom number from 1 to numSpaces (again, so we are not stuck at 9) 
         
+        while (!b.isValidMove(randomMove))
+        {
+            randomMove = rand.nextInt(numSpaces) + 1; 
+        }
+        
         return randomMove; 
     }
 }

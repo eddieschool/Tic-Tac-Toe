@@ -67,6 +67,55 @@ public class Board
     }
     
     /** 
+     * Checks is a specific spot on the board is taken 
+     * 
+     * @param is the move/position to check 
+     * @return true if the spot is taken (not null) and false if else 
+     */
+    
+    private boolean isSpotTaken(int move)
+    {
+        //convert nove to a row and column 
+        int row = (move - 1) / SIZE; 
+        int col = (move - 1) % SIZE; 
+        
+        //check if the spot on the board is taken or null 
+        if (board[row][col] != null)
+        {
+            return true; 
+        }
+        else //is null
+        {
+            return false; 
+        }
+    }
+    
+    /**
+     * Check to see if a move is valid. It is valid if it is between 1 and numSpaces
+     * The spot also cannot be taken already 
+     * 
+     * @param is the move position that we will check if it is valid
+     * @return true if the move is valid and false otherwise 
+     */
+    public boolean isValidMove(int move)
+    {
+        int numSpaces = SIZE * SIZE; 
+        
+        //check if it is in the range 
+        if (move < 1 || move > numSpaces)
+        {
+            return false;
+        }
+        
+        //checking if spot is taken already
+        if (isSpotTaken(move))
+        {
+            return false; 
+        }
+        
+        return true; //if neither of the two checks come up false 
+    }
+    /** 
      * Determines if there is a winner 
      * 
      * @return the symbol of the winner or null if no one wins 
