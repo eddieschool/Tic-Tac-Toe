@@ -12,7 +12,7 @@ public class Game
     // instance variables 
     private Board gameBoard; 
     private Player player1; 
-    private Player player2;
+    private InteractivePlayer player2;
 
     /**
      * Constructor for objects of class Game
@@ -22,7 +22,7 @@ public class Game
         // initialise instance variables
         gameBoard = new Board();
         player1 = new Player("X");
-        player2 = new Player("O"); 
+        player2 = new InteractivePlayer("O"); 
     }
 
     public void play() {

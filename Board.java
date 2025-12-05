@@ -123,8 +123,37 @@ public class Board
     
     public String determineWinner()
     {
-        //TODO 
-        return null; //likely if it's a tie? we'll find out I guess 
+        //TODO (A level)
+        //check all rows
+        for (int row = 0; row < SIZE; row++) 
+        {
+            if (board[row][0] != null && board[row][0].equals(board[row][1]) && board[row][1].equals(board[row][2]))
+            {
+                return board[row][0];
+            }
+        }
+        
+        //check all columns 
+        for (int col = 0; col < SIZE; col++)
+        {
+            if (board[0][col] != null && board[0][col].equals(board[1][col]) && board[1][col].equals(board[2][col]))
+            {
+                return board[0][col];
+            }
+        }
+        
+        //check diagonal (top left, bottom right)
+        if (board[0][0] != null && board[0][0].equals(board[1][1]) && board[1][1].equals(board[2][2]))
+        {
+            return board[0][0];
+        }
+        //check other diagonal 
+        if (board[0][2] != null && board[0][2].equals(board[1][1]) && board[1][1].equals(board[2][0]))
+        {
+            return board[0][2];
+        }
+        
+        return null; //means that no winner was found 
     }
     
     /**

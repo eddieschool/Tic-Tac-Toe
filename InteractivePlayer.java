@@ -20,7 +20,7 @@ public class InteractivePlayer extends Player
      */
     public InteractivePlayer(String s)
     {
-        super(s); 
+        super(s); //calls the parent class constructor 
         
         scan = new Scanner(System.in); //initialize the scanner 
     }
@@ -50,4 +50,29 @@ public class InteractivePlayer extends Player
         return scan; 
     }
     //note: getSymbol is inherited from the player class 
+    
+    /**
+     * Overrides the getMove method from Player class
+     * Asks the user to enter a move & validates it
+     * Asks until a valid move is entered
+     * 
+     * @param b is the game board 
+     * @return a valid move position 
+     */
+    
+    @Override
+    public int getMove(Board b)
+    {
+        System.out.print("Enter your move (1-9): ");
+        int move = scan.nextInt();
+        
+        //keep asking until valid(loop)
+        while (!b.isValidMove(move))
+        {
+            System.out.println("Invalid move. Try again.");
+            System.out.print("Enter your move (1-9): ");
+            move = scan.nextInt();
+        }
+        return move; 
+    }
 }
